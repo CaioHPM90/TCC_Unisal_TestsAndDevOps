@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.7 on win32)" generated="20211028 23:00:57.171" rpa="false" schemaversion="2">
+<suite id="s1" name="Main" source="D:\TCC - Projeto\TCC_Unisal_TestsAndDevOps\Tests\main.robot">
+<test id="s1-t1" name="Validate page header">
+<kw name="Go to Robot framework page" library="data">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url_robotframework}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211028 23:00:57.716" level="INFO">Opening browser 'Chrome' to base url 'https://robotframework.org/'.</msg>
+<status status="PASS" starttime="20211028 23:00:57.716" endtime="20211028 23:01:01.234"/>
+</kw>
+<status status="PASS" starttime="20211028 23:00:57.716" endtime="20211028 23:01:01.234"/>
+</kw>
+<kw name="Validate Header data" library="data">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${header_introductionBtn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${header_introductionBtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211028 23:01:01.235" endtime="20211028 23:01:01.253"/>
+</kw>
+<msg timestamp="20211028 23:01:01.253" level="INFO">${msg} = True</msg>
+<status status="PASS" starttime="20211028 23:01:01.235" endtime="20211028 23:01:01.253"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg1}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${header_gettingStartedBtn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${header_gettingStartedBtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211028 23:01:01.254" endtime="20211028 23:01:01.270"/>
+</kw>
+<msg timestamp="20211028 23:01:01.270" level="INFO">${msg1} = True</msg>
+<status status="PASS" starttime="20211028 23:01:01.253" endtime="20211028 23:01:01.270"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg2}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${header_communityBtn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${header_communityBtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211028 23:01:01.271" endtime="20211028 23:01:01.286"/>
+</kw>
+<msg timestamp="20211028 23:01:01.286" level="INFO">${msg2} = True</msg>
+<status status="PASS" starttime="20211028 23:01:01.271" endtime="20211028 23:01:01.286"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg3}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${header_resourcesBtn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${header_resourcesBtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211028 23:01:01.286" endtime="20211028 23:01:01.302"/>
+</kw>
+<msg timestamp="20211028 23:01:01.302" level="INFO">${msg3} = True</msg>
+<status status="PASS" starttime="20211028 23:01:01.286" endtime="20211028 23:01:01.302"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg4}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${header_developmentBtn}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${header_developmentBtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211028 23:01:01.302" endtime="20211028 23:01:01.318"/>
+</kw>
+<msg timestamp="20211028 23:01:01.318" level="INFO">${msg4} = True</msg>
+<status status="PASS" starttime="20211028 23:01:01.302" endtime="20211028 23:01:01.318"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="True" and "${msg1}"=="True" and "${msg2}"=="True" and "${msg3}"=="True" and "${msg4}"=="True"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Validate Header data</arg>
+<arg>Passed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Update Trello Card Column" library="data">
+<arg>${board_id}</arg>
+<arg>Validate Header data</arg>
+<arg>Passed Tests</arg>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}boards/${board_id}/cards/?key=${trello_key}&amp;token=${trello_token}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211028 23:01:02.012" level="INFO">GET Request : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ path_url=/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:02.012" level="INFO">GET Response : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Set-Cookie': 'dsc=995e05a5c31e041585bb025b594ef7983c1f823202b4683d74c35eaf21e44827; Path=/; Expires=Mon, 01 Nov 2021 01:57:41 GMT; Secure, preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '99', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '299', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '374', 'X-Server-Time': '1635472661228', 'X-Trello-Actual-Fastget-Path': 'fast', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:41 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '37', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': 'b28dca8e61f39ec0', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"6178533b86732a2c85a2bb87","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:13:51.222Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":3,"idAttachmentCover":"6178536c62637068358203a9","idLabels":[],"manualCoverAttachment":false,"name":"Navigate into SeleniumLibrary","pos":32767.5,"shortLink":"VLGuIZG2","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/VLGuIZG2","start":null,"subscribed":false,"url":"https://trello.com/c/VLGuIZG2/3-navigate-into-seleniumlibrary","cover":{"idAttachment":"6178536c62637068358203a9","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"61785336af88527dba54c912","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:15:38.445Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":2,"idAttachmentCover":"6178535984d2375901ccb9b0","idLabels":[],"manualCoverAttachment":false,"name":"Validate Header data","pos":114687.25,"shortLink":"yvoAa83f","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/yvoAa83f","start":null,"subscribed":false,"url":"https://trello.com/c/yvoAa83f/2-validate-header-data","cover":{"idAttachment":"6178535984d2375901ccb9b0","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"617853402b3f291ec9f922a6","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:12:42.941Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":4,"idAttachmentCover":"61785387081489781539768a","idLabels":[],"manualCoverAttachment":false,"name":"Verify Element should be enabled Function existance","pos":196607,"shortLink":"tbaWMx7T","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/tbaWMx7T","start":null,"subscribed":false,"url":"https://trello.com/c/tbaWMx7T/4-verify-element-should-be-enabled-function-existance","cover":{"idAttachment":"61785387081489781539768a","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}}] 
+ </msg>
+<msg timestamp="20211028 23:01:02.012" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:01.319" endtime="20211028 23:01:02.012"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sourcedata}</var>
+<arg>json.loads("""${response.content}""")</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211028 23:01:02.014" level="INFO">${sourcedata} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:02.012" endtime="20211028 23:01:02.014"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${all_cards}</var>
+<arg>${sourcedata}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211028 23:01:02.014" level="INFO">${all_cards} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:02.014" endtime="20211028 23:01:02.014"/>
+</kw>
+<for flavor="IN">
+<var>${card}</var>
+<value>@{all_cards}</value>
+<iter>
+<var name="${card}">{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:02.015" level="INFO">${card_name} = 6178533b86732a2c85a2bb87</msg>
+<status status="PASS" starttime="20211028 23:01:02.015" endtime="20211028 23:01:02.015"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:02.017" endtime="20211028 23:01:02.017"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:02.016" endtime="20211028 23:01:02.017"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:02.017" endtime="20211028 23:01:02.017"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:02.017" endtime="20211028 23:01:02.017"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:02.016" endtime="20211028 23:01:02.017"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:02.016" endtime="20211028 23:01:02.017"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:02.015" endtime="20211028 23:01:02.017"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:02.015" endtime="20211028 23:01:02.017"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '61785336af88527dba54c912', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:15:38.445Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:02.018" level="INFO">${card_name} = 61785336af88527dba54c912</msg>
+<status status="PASS" starttime="20211028 23:01:02.018" endtime="20211028 23:01:02.018"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<msg timestamp="20211028 23:01:02.572" level="INFO">PUT Request : url=https://api.trello.com/1/cards/61785336af88527dba54c912?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ path_url=/1/cards/61785336af88527dba54c912?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:02.572" level="INFO">PUT Response : url=https://api.trello.com/1/cards/61785336af88527dba54c912?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '98', 'X-Rate-Limit-Action-Interval-Ms': '3600000', 'X-Rate-Limit-Action-Max': '15000', 'X-Rate-Limit-Action-Remaining': '14999', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '298', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '373', 'Set-Cookie': 'preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'X-Server-Time': '1635472661794', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:41 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '62', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': '7cb4457ab7cbbc25', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"61785336af88527dba54c912","checkItemStates":[],"closed":false,"dateLastActivity":"2021-10-28T23:15:38.445Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":2,"idAttachmentCover":"6178535984d2375901ccb9b0","idLabels":[],"manualCoverAttachment":false,"name":"Validate Header data","pos":114687.25,"shortLink":"yvoAa83f","isTemplate":false,"cardRole":null,"dueComplete":false,"due":null,"email":null,"labels":[],"shortUrl":"https://trello.com/c/yvoAa83f","start":null,"url":"https://trello.com/c/yvoAa83f/2-validate-header-data","cover":{"idAttachment":"6178535984d2375901ccb9b0","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","scaled":[{"_id":"6178535a84d2375901ccb9ea","id":"6178535a84d2375901ccb9ea","scaled":false,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9ea/download/image.png","bytes":1509,"height":50,"width":70},{"_id":"6178535a84d2375901ccb9eb","id":"6178535a84d2375901ccb9eb","scaled":false,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9eb/download/image.png","bytes":8926,"height":150,"width":250},{"_id":"6178535a84d2375901ccb9ec","id":"6178535a84d2375901ccb9ec","scaled":true,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9ec/download/image.png","bytes":4348,"height":46,"width":150},{"_id":"6178535a84d2375901ccb9ed","id":"6178535a84d2375901ccb9ed","scaled":true,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9ed/download/image.png","bytes":11295,"height":92,"width":300},{"_id":"6178535a84d2375901ccb9ee","id":"6178535a84d2375901ccb9ee","scaled":true,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9ee/download/image.png","bytes":24991,"height":184,"width":600},{"_id":"6178535a84d2375901ccb9ef","id":"6178535a84d2375901ccb9ef","scaled":true,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9ef/download/image.png","bytes":22148,"height":288,"width":940},{"_id":"6178535a84d2375901ccb9f0","id":"6178535a84d2375901ccb9f0","scaled":true,"url":"https://trello.com/1/cards/61785336af88527dba54c912/attachments/6178535984d2375901ccb9b0/previews/6178535a84d2375901ccb9f0/download/image.png","bytes":27687,"height":288,"width":940}],"edgeColor":"#04c4b4","idPlugin":null},"idMembers":[],"idChecklists":[],"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"subscribed":false} 
+ </msg>
+<msg timestamp="20211028 23:01:02.573" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:02.019" endtime="20211028 23:01:02.573"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:02.019" endtime="20211028 23:01:02.573"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:02.573" endtime="20211028 23:01:02.573"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:02.573" endtime="20211028 23:01:02.573"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:02.019" endtime="20211028 23:01:02.573"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:02.019" endtime="20211028 23:01:02.573"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:02.018" endtime="20211028 23:01:02.573"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:02.018" endtime="20211028 23:01:02.573"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '617853402b3f291ec9f922a6', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:12:42.941Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:02.573" level="INFO">${card_name} = 617853402b3f291ec9f922a6</msg>
+<status status="PASS" starttime="20211028 23:01:02.573" endtime="20211028 23:01:02.573"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:02.574" endtime="20211028 23:01:02.575"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:02.574" endtime="20211028 23:01:02.575"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:02.575" endtime="20211028 23:01:02.575"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:02.575" endtime="20211028 23:01:02.575"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:02.574" endtime="20211028 23:01:02.575"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:02.574" endtime="20211028 23:01:02.575"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:02.574" endtime="20211028 23:01:02.575"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:02.573" endtime="20211028 23:01:02.575"/>
+</iter>
+<status status="PASS" starttime="20211028 23:01:02.014" endtime="20211028 23:01:02.575"/>
+</for>
+<status status="PASS" starttime="20211028 23:01:01.319" endtime="20211028 23:01:02.575"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:01.318" endtime="20211028 23:01:02.575"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="False" or "${msg1}"=="False" or "${msg2}"=="False" or "${msg3}"=="False" or "${msg4}"=="False"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Validate Header data</arg>
+<arg>Failed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211028 23:01:02.575" endtime="20211028 23:01:02.576"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:01.234" endtime="20211028 23:01:02.576"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211028 23:01:02.576" endtime="20211028 23:01:04.707"/>
+</kw>
+<status status="PASS" starttime="20211028 23:00:57.715" endtime="20211028 23:01:04.707"/>
+</test>
+<test id="s1-t2" name="Check if it's possible to navigate to SeleniumLibrary">
+<kw name="Go to Robot framework page" library="data">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url_robotframework}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211028 23:01:04.710" level="INFO">Opening browser 'Chrome' to base url 'https://robotframework.org/'.</msg>
+<status status="PASS" starttime="20211028 23:01:04.709" endtime="20211028 23:01:06.425"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:04.709" endtime="20211028 23:01:06.425"/>
+</kw>
+<kw name="Navigate to SeleniumLibrary" library="data">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, window.scrollY+30)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20211028 23:01:06.427" level="INFO">Executing JavaScript:
+window.scrollTo(0, window.scrollY+30)
+Without any arguments.</msg>
+<status status="PASS" starttime="20211028 23:01:06.426" endtime="20211028 23:01:06.431"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${seleniumLibraryBtn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211028 23:01:06.432" level="INFO">Clicking element '//a[text()="SeleniumLibrary"]'.</msg>
+<status status="PASS" starttime="20211028 23:01:06.432" endtime="20211028 23:01:06.473"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg}</var>
+<arg>Page Should Contain</arg>
+<arg>GitHub</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>GitHub</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211028 23:01:06.489" level="INFO">Current page contains text 'GitHub'.</msg>
+<status status="PASS" starttime="20211028 23:01:06.474" endtime="20211028 23:01:06.489"/>
+</kw>
+<msg timestamp="20211028 23:01:06.489" level="INFO">${msg} = True</msg>
+<status status="PASS" starttime="20211028 23:01:06.473" endtime="20211028 23:01:06.489"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="True"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Navigate into SeleniumLibrary</arg>
+<arg>Passed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Update Trello Card Column" library="data">
+<arg>${board_id}</arg>
+<arg>Navigate into SeleniumLibrary</arg>
+<arg>Passed Tests</arg>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}boards/${board_id}/cards/?key=${trello_key}&amp;token=${trello_token}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211028 23:01:07.049" level="INFO">GET Request : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ path_url=/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:07.049" level="INFO">GET Response : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Set-Cookie': 'dsc=cb5fb2166908942a96f1530447342a473e908a5e598d0bbc19055232d9f761be; Path=/; Expires=Mon, 01 Nov 2021 01:57:46 GMT; Secure, preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '97', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '297', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '372', 'X-Server-Time': '1635472666278', 'X-Trello-Actual-Fastget-Path': 'fast', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:46 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '33', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': 'f01682db3752f506', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"6178533b86732a2c85a2bb87","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:13:51.222Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":3,"idAttachmentCover":"6178536c62637068358203a9","idLabels":[],"manualCoverAttachment":false,"name":"Navigate into SeleniumLibrary","pos":32767.5,"shortLink":"VLGuIZG2","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/VLGuIZG2","start":null,"subscribed":false,"url":"https://trello.com/c/VLGuIZG2/3-navigate-into-seleniumlibrary","cover":{"idAttachment":"6178536c62637068358203a9","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"61785336af88527dba54c912","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:15:38.445Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":2,"idAttachmentCover":"6178535984d2375901ccb9b0","idLabels":[],"manualCoverAttachment":false,"name":"Validate Header data","pos":114687.25,"shortLink":"yvoAa83f","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/yvoAa83f","start":null,"subscribed":false,"url":"https://trello.com/c/yvoAa83f/2-validate-header-data","cover":{"idAttachment":"6178535984d2375901ccb9b0","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"617853402b3f291ec9f922a6","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:12:42.941Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":4,"idAttachmentCover":"61785387081489781539768a","idLabels":[],"manualCoverAttachment":false,"name":"Verify Element should be enabled Function existance","pos":196607,"shortLink":"tbaWMx7T","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/tbaWMx7T","start":null,"subscribed":false,"url":"https://trello.com/c/tbaWMx7T/4-verify-element-should-be-enabled-function-existance","cover":{"idAttachment":"61785387081489781539768a","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}}] 
+ </msg>
+<msg timestamp="20211028 23:01:07.050" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:06.491" endtime="20211028 23:01:07.050"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sourcedata}</var>
+<arg>json.loads("""${response.content}""")</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211028 23:01:07.051" level="INFO">${sourcedata} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:07.050" endtime="20211028 23:01:07.051"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${all_cards}</var>
+<arg>${sourcedata}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211028 23:01:07.051" level="INFO">${all_cards} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:07.051" endtime="20211028 23:01:07.051"/>
+</kw>
+<for flavor="IN">
+<var>${card}</var>
+<value>@{all_cards}</value>
+<iter>
+<var name="${card}">{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:07.052" level="INFO">${card_name} = 6178533b86732a2c85a2bb87</msg>
+<status status="PASS" starttime="20211028 23:01:07.051" endtime="20211028 23:01:07.052"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<msg timestamp="20211028 23:01:08.011" level="INFO">PUT Request : url=https://api.trello.com/1/cards/6178533b86732a2c85a2bb87?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ path_url=/1/cards/6178533b86732a2c85a2bb87?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:08.012" level="INFO">PUT Response : url=https://api.trello.com/1/cards/6178533b86732a2c85a2bb87?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '96', 'X-Rate-Limit-Action-Interval-Ms': '3600000', 'X-Rate-Limit-Action-Max': '15000', 'X-Rate-Limit-Action-Remaining': '14999', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '296', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '371', 'Set-Cookie': 'preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'X-Server-Time': '1635472667234', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:47 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '55', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': '2387f68140c11804', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"6178533b86732a2c85a2bb87","checkItemStates":[],"closed":false,"dateLastActivity":"2021-10-28T23:13:51.222Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":3,"idAttachmentCover":"6178536c62637068358203a9","idLabels":[],"manualCoverAttachment":false,"name":"Navigate into SeleniumLibrary","pos":32767.5,"shortLink":"VLGuIZG2","isTemplate":false,"cardRole":null,"dueComplete":false,"due":null,"email":null,"labels":[],"shortUrl":"https://trello.com/c/VLGuIZG2","start":null,"url":"https://trello.com/c/VLGuIZG2/3-navigate-into-seleniumlibrary","cover":{"idAttachment":"6178536c62637068358203a9","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","scaled":[{"_id":"6178536d62637068358203b1","id":"6178536d62637068358203b1","scaled":false,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b1/download/image.png","bytes":1624,"height":50,"width":70},{"_id":"6178536d62637068358203b2","id":"6178536d62637068358203b2","scaled":false,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b2/download/image.png","bytes":11078,"height":150,"width":250},{"_id":"6178536d62637068358203b3","id":"6178536d62637068358203b3","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b3/download/image.png","bytes":4690,"height":42,"width":149},{"_id":"6178536d62637068358203b4","id":"6178536d62637068358203b4","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b4/download/image.png","bytes":13852,"height":85,"width":300},{"_id":"6178536d62637068358203b5","id":"6178536d62637068358203b5","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b5/download/image.png","bytes":39717,"height":169,"width":598},{"_id":"6178536d62637068358203b6","id":"6178536d62637068358203b6","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b6/download/image.png","bytes":28759,"height":333,"width":1179},{"_id":"6178536d62637068358203b7","id":"6178536d62637068358203b7","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b7/download/image.png","bytes":33610,"height":333,"width":1179}],"edgeColor":"#242424","idPlugin":null},"idMembers":[],"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"subscribed":false,"idChecklists":[]} 
+ </msg>
+<msg timestamp="20211028 23:01:08.012" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:07.052" endtime="20211028 23:01:08.012"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:07.052" endtime="20211028 23:01:08.012"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:08.012" endtime="20211028 23:01:08.012"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:08.012" endtime="20211028 23:01:08.012"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:07.052" endtime="20211028 23:01:08.012"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:07.052" endtime="20211028 23:01:08.012"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:07.052" endtime="20211028 23:01:08.012"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:07.051" endtime="20211028 23:01:08.012"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '61785336af88527dba54c912', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:15:38.445Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:08.013" level="INFO">${card_name} = 61785336af88527dba54c912</msg>
+<status status="PASS" starttime="20211028 23:01:08.012" endtime="20211028 23:01:08.013"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:08.014" endtime="20211028 23:01:08.014"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:08.013" endtime="20211028 23:01:08.014"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:08.014" endtime="20211028 23:01:08.014"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:08.014" endtime="20211028 23:01:08.014"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:08.013" endtime="20211028 23:01:08.014"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:08.013" endtime="20211028 23:01:08.014"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:08.013" endtime="20211028 23:01:08.014"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:08.012" endtime="20211028 23:01:08.014"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '617853402b3f291ec9f922a6', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:12:42.941Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:08.015" level="INFO">${card_name} = 617853402b3f291ec9f922a6</msg>
+<status status="PASS" starttime="20211028 23:01:08.014" endtime="20211028 23:01:08.015"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:08.015" endtime="20211028 23:01:08.015"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:08.015" endtime="20211028 23:01:08.015"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:08.016" endtime="20211028 23:01:08.016"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:08.016" endtime="20211028 23:01:08.016"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:08.015" endtime="20211028 23:01:08.016"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:08.015" endtime="20211028 23:01:08.016"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:08.015" endtime="20211028 23:01:08.016"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:08.014" endtime="20211028 23:01:08.016"/>
+</iter>
+<status status="PASS" starttime="20211028 23:01:07.051" endtime="20211028 23:01:08.016"/>
+</for>
+<status status="PASS" starttime="20211028 23:01:06.490" endtime="20211028 23:01:08.016"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:06.490" endtime="20211028 23:01:08.016"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="False"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Navigate into SeleniumLibrary</arg>
+<arg>Failed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211028 23:01:08.016" endtime="20211028 23:01:08.016"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:06.426" endtime="20211028 23:01:08.016"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211028 23:01:08.017" endtime="20211028 23:01:10.164"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:04.709" endtime="20211028 23:01:10.164"/>
+</test>
+<test id="s1-t3" name="Check if &quot;Element should be enabled&quot; function exists">
+<kw name="Go to Robot framework page" library="data">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url_robotframework}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211028 23:01:10.167" level="INFO">Opening browser 'Chrome' to base url 'https://robotframework.org/'.</msg>
+<status status="PASS" starttime="20211028 23:01:10.166" endtime="20211028 23:01:12.658"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:10.166" endtime="20211028 23:01:12.658"/>
+</kw>
+<kw name="Navigate to SeleniumLibrary" library="data">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, window.scrollY+30)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20211028 23:01:12.659" level="INFO">Executing JavaScript:
+window.scrollTo(0, window.scrollY+30)
+Without any arguments.</msg>
+<status status="PASS" starttime="20211028 23:01:12.659" endtime="20211028 23:01:12.662"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${seleniumLibraryBtn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211028 23:01:12.663" level="INFO">Clicking element '//a[text()="SeleniumLibrary"]'.</msg>
+<status status="PASS" starttime="20211028 23:01:12.662" endtime="20211028 23:01:12.699"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg}</var>
+<arg>Page Should Contain</arg>
+<arg>GitHub</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>GitHub</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211028 23:01:12.712" level="INFO">Current page contains text 'GitHub'.</msg>
+<status status="PASS" starttime="20211028 23:01:12.699" endtime="20211028 23:01:12.712"/>
+</kw>
+<msg timestamp="20211028 23:01:12.712" level="INFO">${msg} = True</msg>
+<status status="PASS" starttime="20211028 23:01:12.699" endtime="20211028 23:01:12.712"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="True"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Navigate into SeleniumLibrary</arg>
+<arg>Passed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Update Trello Card Column" library="data">
+<arg>${board_id}</arg>
+<arg>Navigate into SeleniumLibrary</arg>
+<arg>Passed Tests</arg>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}boards/${board_id}/cards/?key=${trello_key}&amp;token=${trello_token}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211028 23:01:13.784" level="INFO">GET Request : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ path_url=/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:13.785" level="INFO">GET Response : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Set-Cookie': 'dsc=0c00f5f32a00b5335204256599ea1220dd8f87679338923faae3fc5f6f0c29bd; Path=/; Expires=Mon, 01 Nov 2021 01:57:52 GMT; Secure, preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '99', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '299', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '374', 'X-Server-Time': '1635472672989', 'X-Trello-Actual-Fastget-Path': 'fast', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:52 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '28', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': '0d0b6742bc2d6696', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"6178533b86732a2c85a2bb87","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:13:51.222Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":3,"idAttachmentCover":"6178536c62637068358203a9","idLabels":[],"manualCoverAttachment":false,"name":"Navigate into SeleniumLibrary","pos":32767.5,"shortLink":"VLGuIZG2","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/VLGuIZG2","start":null,"subscribed":false,"url":"https://trello.com/c/VLGuIZG2/3-navigate-into-seleniumlibrary","cover":{"idAttachment":"6178536c62637068358203a9","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"61785336af88527dba54c912","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:15:38.445Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":2,"idAttachmentCover":"6178535984d2375901ccb9b0","idLabels":[],"manualCoverAttachment":false,"name":"Validate Header data","pos":114687.25,"shortLink":"yvoAa83f","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/yvoAa83f","start":null,"subscribed":false,"url":"https://trello.com/c/yvoAa83f/2-validate-header-data","cover":{"idAttachment":"6178535984d2375901ccb9b0","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"617853402b3f291ec9f922a6","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:12:42.941Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":4,"idAttachmentCover":"61785387081489781539768a","idLabels":[],"manualCoverAttachment":false,"name":"Verify Element should be enabled Function existance","pos":196607,"shortLink":"tbaWMx7T","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/tbaWMx7T","start":null,"subscribed":false,"url":"https://trello.com/c/tbaWMx7T/4-verify-element-should-be-enabled-function-existance","cover":{"idAttachment":"61785387081489781539768a","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}}] 
+ </msg>
+<msg timestamp="20211028 23:01:13.785" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:12.713" endtime="20211028 23:01:13.785"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sourcedata}</var>
+<arg>json.loads("""${response.content}""")</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211028 23:01:13.786" level="INFO">${sourcedata} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:13.785" endtime="20211028 23:01:13.786"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${all_cards}</var>
+<arg>${sourcedata}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211028 23:01:13.787" level="INFO">${all_cards} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:13.786" endtime="20211028 23:01:13.787"/>
+</kw>
+<for flavor="IN">
+<var>${card}</var>
+<value>@{all_cards}</value>
+<iter>
+<var name="${card}">{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:13.787" level="INFO">${card_name} = 6178533b86732a2c85a2bb87</msg>
+<status status="PASS" starttime="20211028 23:01:13.787" endtime="20211028 23:01:13.787"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<msg timestamp="20211028 23:01:14.367" level="INFO">PUT Request : url=https://api.trello.com/1/cards/6178533b86732a2c85a2bb87?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ path_url=/1/cards/6178533b86732a2c85a2bb87?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:14.367" level="INFO">PUT Response : url=https://api.trello.com/1/cards/6178533b86732a2c85a2bb87?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '98', 'X-Rate-Limit-Action-Interval-Ms': '3600000', 'X-Rate-Limit-Action-Max': '15000', 'X-Rate-Limit-Action-Remaining': '14999', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '298', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '373', 'Set-Cookie': 'preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'X-Server-Time': '1635472673580', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:53 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '55', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': '2cef14cf1c5fcf6e', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"6178533b86732a2c85a2bb87","checkItemStates":[],"closed":false,"dateLastActivity":"2021-10-28T23:13:51.222Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":3,"idAttachmentCover":"6178536c62637068358203a9","idLabels":[],"manualCoverAttachment":false,"name":"Navigate into SeleniumLibrary","pos":32767.5,"shortLink":"VLGuIZG2","isTemplate":false,"cardRole":null,"dueComplete":false,"due":null,"email":null,"labels":[],"shortUrl":"https://trello.com/c/VLGuIZG2","start":null,"url":"https://trello.com/c/VLGuIZG2/3-navigate-into-seleniumlibrary","cover":{"idAttachment":"6178536c62637068358203a9","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","scaled":[{"_id":"6178536d62637068358203b1","id":"6178536d62637068358203b1","scaled":false,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b1/download/image.png","bytes":1624,"height":50,"width":70},{"_id":"6178536d62637068358203b2","id":"6178536d62637068358203b2","scaled":false,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b2/download/image.png","bytes":11078,"height":150,"width":250},{"_id":"6178536d62637068358203b3","id":"6178536d62637068358203b3","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b3/download/image.png","bytes":4690,"height":42,"width":149},{"_id":"6178536d62637068358203b4","id":"6178536d62637068358203b4","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b4/download/image.png","bytes":13852,"height":85,"width":300},{"_id":"6178536d62637068358203b5","id":"6178536d62637068358203b5","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b5/download/image.png","bytes":39717,"height":169,"width":598},{"_id":"6178536d62637068358203b6","id":"6178536d62637068358203b6","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b6/download/image.png","bytes":28759,"height":333,"width":1179},{"_id":"6178536d62637068358203b7","id":"6178536d62637068358203b7","scaled":true,"url":"https://trello.com/1/cards/6178533b86732a2c85a2bb87/attachments/6178536c62637068358203a9/previews/6178536d62637068358203b7/download/image.png","bytes":33610,"height":333,"width":1179}],"edgeColor":"#242424","idPlugin":null},"idMembers":[],"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"subscribed":false,"idChecklists":[]} 
+ </msg>
+<msg timestamp="20211028 23:01:14.367" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:13.788" endtime="20211028 23:01:14.367"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:13.788" endtime="20211028 23:01:14.367"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:14.367" endtime="20211028 23:01:14.367"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:14.367" endtime="20211028 23:01:14.367"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:13.788" endtime="20211028 23:01:14.368"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:13.788" endtime="20211028 23:01:14.368"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:13.787" endtime="20211028 23:01:14.368"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:13.787" endtime="20211028 23:01:14.368"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '61785336af88527dba54c912', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:15:38.445Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:14.368" level="INFO">${card_name} = 61785336af88527dba54c912</msg>
+<status status="PASS" starttime="20211028 23:01:14.368" endtime="20211028 23:01:14.368"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:14.369" endtime="20211028 23:01:14.369"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:14.369" endtime="20211028 23:01:14.369"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:14.369" endtime="20211028 23:01:14.369"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:14.369" endtime="20211028 23:01:14.369"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:14.369" endtime="20211028 23:01:14.369"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:14.369" endtime="20211028 23:01:14.369"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:14.368" endtime="20211028 23:01:14.369"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:14.368" endtime="20211028 23:01:14.370"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '617853402b3f291ec9f922a6', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:12:42.941Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:14.370" level="INFO">${card_name} = 617853402b3f291ec9f922a6</msg>
+<status status="PASS" starttime="20211028 23:01:14.370" endtime="20211028 23:01:14.370"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.371"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.371"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.371"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.371"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.371"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.371"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:14.370" endtime="20211028 23:01:14.371"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:14.370" endtime="20211028 23:01:14.371"/>
+</iter>
+<status status="PASS" starttime="20211028 23:01:13.787" endtime="20211028 23:01:14.371"/>
+</for>
+<status status="PASS" starttime="20211028 23:01:12.713" endtime="20211028 23:01:14.371"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:12.712" endtime="20211028 23:01:14.371"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="False"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Navigate into SeleniumLibrary</arg>
+<arg>Failed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211028 23:01:14.371" endtime="20211028 23:01:14.372"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:12.658" endtime="20211028 23:01:14.372"/>
+</kw>
+<kw name="See if &quot;Element should be enabled&quot; function exists" library="data">
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20211028 23:01:17.377" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20211028 23:01:14.372" endtime="20211028 23:01:17.377"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>window.scrollTo(0, window.scrollY+40)</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20211028 23:01:17.377" level="INFO">Executing JavaScript:
+window.scrollTo(0, window.scrollY+40)
+Without any arguments.</msg>
+<status status="PASS" starttime="20211028 23:01:17.377" endtime="20211028 23:01:17.382"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${keywordDoc_element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211028 23:01:17.382" level="INFO">Clicking element '//a[text()="keyword documentation"]'.</msg>
+<status status="PASS" starttime="20211028 23:01:17.382" endtime="20211028 23:01:18.011"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_txt}</arg>
+<arg>Element should be enabled</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211028 23:01:18.012" level="INFO">Typing text 'Element should be enabled' into text field '//input[@placeholder="Search"]'.</msg>
+<status status="PASS" starttime="20211028 23:01:18.012" endtime="20211028 23:01:18.172"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${msg}</var>
+<arg>Page Should Contain</arg>
+<arg>Element Should Be Enabled</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Element Should Be Enabled</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211028 23:01:18.210" level="INFO">Current page contains text 'Element Should Be Enabled'.</msg>
+<status status="PASS" starttime="20211028 23:01:18.172" endtime="20211028 23:01:18.210"/>
+</kw>
+<msg timestamp="20211028 23:01:18.210" level="INFO">${msg} = True</msg>
+<status status="PASS" starttime="20211028 23:01:18.172" endtime="20211028 23:01:18.210"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="True"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Verify Element should be enabled Function existance</arg>
+<arg>Passed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Update Trello Card Column" library="data">
+<arg>${board_id}</arg>
+<arg>Verify Element should be enabled Function existance</arg>
+<arg>Passed Tests</arg>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}boards/${board_id}/cards/?key=${trello_key}&amp;token=${trello_token}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211028 23:01:18.747" level="INFO">GET Request : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ path_url=/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:18.747" level="INFO">GET Response : url=https://api.trello.com/1/boards/606b3b527356c551f0f1cca9/cards/?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Set-Cookie': 'dsc=e8b0fca168fc5c5412af2c824291293a443537bd7f62315f940234017f5d6e4f; Path=/; Expires=Mon, 01 Nov 2021 01:57:57 GMT; Secure, preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '97', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '297', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '372', 'X-Server-Time': '1635472677971', 'X-Trello-Actual-Fastget-Path': 'fast', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:57 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '27', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': '98544d32b667b474', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"6178533b86732a2c85a2bb87","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:13:51.222Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":3,"idAttachmentCover":"6178536c62637068358203a9","idLabels":[],"manualCoverAttachment":false,"name":"Navigate into SeleniumLibrary","pos":32767.5,"shortLink":"VLGuIZG2","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/VLGuIZG2","start":null,"subscribed":false,"url":"https://trello.com/c/VLGuIZG2/3-navigate-into-seleniumlibrary","cover":{"idAttachment":"6178536c62637068358203a9","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"61785336af88527dba54c912","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:15:38.445Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":2,"idAttachmentCover":"6178535984d2375901ccb9b0","idLabels":[],"manualCoverAttachment":false,"name":"Validate Header data","pos":114687.25,"shortLink":"yvoAa83f","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/yvoAa83f","start":null,"subscribed":false,"url":"https://trello.com/c/yvoAa83f/2-validate-header-data","cover":{"idAttachment":"6178535984d2375901ccb9b0","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}},{"id":"617853402b3f291ec9f922a6","checkItemStates":null,"closed":false,"dateLastActivity":"2021-10-28T23:12:42.941Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":4,"idAttachmentCover":"61785387081489781539768a","idLabels":[],"manualCoverAttachment":false,"name":"Verify Element should be enabled Function existance","pos":196607,"shortLink":"tbaWMx7T","isTemplate":false,"cardRole":null,"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"dueComplete":false,"due":null,"idChecklists":[],"idMembers":[],"labels":[],"shortUrl":"https://trello.com/c/tbaWMx7T","start":null,"subscribed":false,"url":"https://trello.com/c/tbaWMx7T/4-verify-element-should-be-enabled-function-existance","cover":{"idAttachment":"61785387081489781539768a","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","idPlugin":null}}] 
+ </msg>
+<msg timestamp="20211028 23:01:18.747" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:18.211" endtime="20211028 23:01:18.747"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${sourcedata}</var>
+<arg>json.loads("""${response.content}""")</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20211028 23:01:18.748" level="INFO">${sourcedata} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:18.747" endtime="20211028 23:01:18.748"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${all_cards}</var>
+<arg>${sourcedata}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20211028 23:01:18.748" level="INFO">${all_cards} = [{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '60...</msg>
+<status status="PASS" starttime="20211028 23:01:18.748" endtime="20211028 23:01:18.748"/>
+</kw>
+<for flavor="IN">
+<var>${card}</var>
+<value>@{all_cards}</value>
+<iter>
+<var name="${card}">{'id': '6178533b86732a2c85a2bb87', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:13:51.222Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:18.749" level="INFO">${card_name} = 6178533b86732a2c85a2bb87</msg>
+<status status="PASS" starttime="20211028 23:01:18.749" endtime="20211028 23:01:18.749"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.750"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.750"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.750"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.750"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.750"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.750"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:18.749" endtime="20211028 23:01:18.750"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:18.748" endtime="20211028 23:01:18.750"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '61785336af88527dba54c912', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:15:38.445Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:18.751" level="INFO">${card_name} = 61785336af88527dba54c912</msg>
+<status status="PASS" starttime="20211028 23:01:18.751" endtime="20211028 23:01:18.751"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:18.752" endtime="20211028 23:01:18.752"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:18.751" endtime="20211028 23:01:18.752"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:18.752" endtime="20211028 23:01:18.752"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:18.752" endtime="20211028 23:01:18.752"/>
+</branch>
+<status status="NOT RUN" starttime="20211028 23:01:18.751" endtime="20211028 23:01:18.752"/>
+</if>
+<status status="NOT RUN" starttime="20211028 23:01:18.751" endtime="20211028 23:01:18.752"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:18.751" endtime="20211028 23:01:18.752"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:18.750" endtime="20211028 23:01:18.752"/>
+</iter>
+<iter>
+<var name="${card}">{'id': '617853402b3f291ec9f922a6', 'checkItemStates': None, 'closed': False, 'dateLastActivity': '2021-10-28T23:12:42.941Z', 'desc': '', 'descData': {'emoji': {}}, 'dueReminder': None, 'idBoard': '606...</var>
+<kw name="Get From Dictionary" library="Collections">
+<var>${card_name}</var>
+<arg>${card}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20211028 23:01:18.752" level="INFO">${card_name} = 617853402b3f291ec9f922a6</msg>
+<status status="PASS" starttime="20211028 23:01:18.752" endtime="20211028 23:01:18.752"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${card['name']}&quot;==&quot;${card_title}&quot;">
+<if>
+<branch type="IF" condition="&quot;${column}&quot;==&quot;Passed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccab</arg>
+<doc>Sends a PUT request.</doc>
+<msg timestamp="20211028 23:01:19.307" level="INFO">PUT Request : url=https://api.trello.com/1/cards/617853402b3f291ec9f922a6?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ path_url=/1/cards/617853402b3f291ec9f922a6?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20211028 23:01:19.307" level="INFO">PUT Response : url=https://api.trello.com/1/cards/617853402b3f291ec9f922a6?key=e9b55d67d5d7736442521d048d692eb8&amp;token=da61b7431a0d6e4563491e36c9bfcbb0c3480b5d41429158461a9ef0a686b683&amp;idList=606b3b527356c551f0f1ccab 
+ status=200, reason=OK 
+ headers={'X-Dns-Prefetch-Control': 'off', 'X-Frame-Options': 'DENY', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Surrogate-Control': 'no-store', 'Cache-Control': 'max-age=0, must-revalidate, no-cache, no-store', 'Pragma': 'no-cache', 'Expires': 'Thu, 01 Jan 1970 00:00:00', 'X-Trello-Version': '1.95052.0', 'X-Trello-Environment': 'Production', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE', 'Access-Control-Allow-Headers': 'Authorization, Accept, Content-Type', 'Access-Control-Expose-Headers': 'x-rate-limit-api-key-interval-ms, x-rate-limit-api-key-max, x-rate-limit-api-key-remaining, x-rate-limit-api-token-interval-ms, x-rate-limit-api-token-max, x-rate-limit-api-token-remaining', 'X-Rate-Limit-Api-Token-Interval-Ms': '10000', 'X-Rate-Limit-Api-Token-Max': '100', 'X-Rate-Limit-Api-Token-Remaining': '96', 'X-Rate-Limit-Action-Interval-Ms': '3600000', 'X-Rate-Limit-Action-Max': '15000', 'X-Rate-Limit-Action-Remaining': '14999', 'X-Rate-Limit-Api-Key-Interval-Ms': '10000', 'X-Rate-Limit-Api-Key-Max': '300', 'X-Rate-Limit-Api-Key-Remaining': '296', 'X-Rate-Limit-Member-Interval-Ms': '10000', 'X-Rate-Limit-Member-Max': '375', 'X-Rate-Limit-Member-Remaining': '371', 'Set-Cookie': 'preAuthProps=s%3A5e4b15a20fcefa8a556cbdcc%3AisEnterpriseAdmin%3Dfalse.rLOBgSq0mf9SdokRfwEXIxzkkWB9IRvbBlQ1vTO%2B0Nc; Path=/; HttpOnly', 'X-Server-Time': '1635472678533', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 29 Oct 2021 01:57:58 GMT', 'Content-Encoding': 'gzip', 'X-Envoy-Upstream-Service-Time': '58', 'Expect-Ct': 'report-uri="https://web-security-reports.services.atlassian.com/expect-ct-report/trello-edge", max-age=86400', 'Strict-Transport-Security': 'max-age=63072000; preload', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block', 'Atl-Traceid': '2a824baaddac50de', 'Report-To': '{"group": "endpoint-1", "max_age": 600, "endpoints": [{"url": "https://dj9s4kmieytgz.cloudfront.net"}], "include_subdomains": true}', 'Nel': '{"report_to": "endpoint-1", "max_age": 600, "include_subdomains": true, "failure_fraction": 0.001}', 'Server': 'globaledge-envoy', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"617853402b3f291ec9f922a6","checkItemStates":[],"closed":false,"dateLastActivity":"2021-10-28T23:12:42.941Z","desc":"","descData":{"emoji":{}},"dueReminder":null,"idBoard":"606b3b527356c551f0f1cca9","idList":"606b3b527356c551f0f1ccab","idMembersVoted":[],"idShort":4,"idAttachmentCover":"61785387081489781539768a","idLabels":[],"manualCoverAttachment":false,"name":"Verify Element should be enabled Function existance","pos":196607,"shortLink":"tbaWMx7T","isTemplate":false,"cardRole":null,"dueComplete":false,"due":null,"email":null,"labels":[],"shortUrl":"https://trello.com/c/tbaWMx7T","start":null,"url":"https://trello.com/c/tbaWMx7T/4-verify-element-should-be-enabled-function-existance","cover":{"idAttachment":"61785387081489781539768a","color":null,"idUploadedBackground":null,"size":"normal","brightness":"dark","scaled":[{"_id":"6178538708148978153976a3","id":"6178538708148978153976a3","scaled":false,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a3/download/image.png","bytes":2778,"height":50,"width":70},{"_id":"6178538708148978153976a4","id":"6178538708148978153976a4","scaled":false,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a4/download/image.png","bytes":21371,"height":150,"width":250},{"_id":"6178538708148978153976a5","id":"6178538708148978153976a5","scaled":true,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a5/download/image.png","bytes":9318,"height":73,"width":149},{"_id":"6178538708148978153976a6","id":"6178538708148978153976a6","scaled":true,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a6/download/image.png","bytes":27568,"height":147,"width":300},{"_id":"6178538708148978153976a7","id":"6178538708148978153976a7","scaled":true,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a7/download/image.png","bytes":77025,"height":293,"width":599},{"_id":"6178538708148978153976a8","id":"6178538708148978153976a8","scaled":true,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a8/download/image.png","bytes":34195,"height":378,"width":773},{"_id":"6178538708148978153976a9","id":"6178538708148978153976a9","scaled":true,"url":"https://trello.com/1/cards/617853402b3f291ec9f922a6/attachments/61785387081489781539768a/previews/6178538708148978153976a9/download/image.png","bytes":35352,"height":378,"width":773}],"edgeColor":"#202829","idPlugin":null},"idMembers":[],"badges":{"attachmentsByType":{"trello":{"board":0,"card":0}},"location":false,"votes":0,"viewingMemberVoted":false,"subscribed":false,"fogbugz":"","checkItems":0,"checkItemsChecked":0,"checkItemsEarliestDue":null,"comments":0,"attachments":1,"description":false,"due":null,"dueComplete":false,"start":null},"subscribed":false,"idChecklists":[]} 
+ </msg>
+<msg timestamp="20211028 23:01:19.308" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211028 23:01:18.753" endtime="20211028 23:01:19.308"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:18.753" endtime="20211028 23:01:19.308"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${column}&quot;==&quot;Failed Tests&quot;">
+<kw name="PUT" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${trello_baseurl}cards/${card['id']}?key=${trello_key}&amp;token=${trello_token}&amp;idList=606b3b527356c551f0f1ccaa</arg>
+<doc>Sends a PUT request.</doc>
+<status status="NOT RUN" starttime="20211028 23:01:19.308" endtime="20211028 23:01:19.308"/>
+</kw>
+<status status="NOT RUN" starttime="20211028 23:01:19.308" endtime="20211028 23:01:19.308"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:18.753" endtime="20211028 23:01:19.308"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:18.753" endtime="20211028 23:01:19.308"/>
+</branch>
+<status status="PASS" starttime="20211028 23:01:18.752" endtime="20211028 23:01:19.308"/>
+</if>
+<status status="PASS" starttime="20211028 23:01:18.752" endtime="20211028 23:01:19.308"/>
+</iter>
+<status status="PASS" starttime="20211028 23:01:18.748" endtime="20211028 23:01:19.308"/>
+</for>
+<status status="PASS" starttime="20211028 23:01:18.210" endtime="20211028 23:01:19.308"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:18.210" endtime="20211028 23:01:19.308"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"${msg}"=="False"</arg>
+<arg>Update Trello Card Column</arg>
+<arg>${board_id}</arg>
+<arg>Verify Element should be enabled Function existance</arg>
+<arg>Failed Tests</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20211028 23:01:19.308" endtime="20211028 23:01:19.309"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:14.372" endtime="20211028 23:01:19.309"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211028 23:01:19.309" endtime="20211028 23:01:21.831"/>
+</kw>
+<status status="PASS" starttime="20211028 23:01:10.165" endtime="20211028 23:01:21.831"/>
+</test>
+<status status="PASS" starttime="20211028 23:00:57.172" endtime="20211028 23:01:21.832"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Main">Main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
